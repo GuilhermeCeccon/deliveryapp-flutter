@@ -29,7 +29,7 @@ class AddDelivery extends StatelessWidget {
                 ),
                 controller: _nameController,
                 validator: (value) {
-                 if (value?.isEmpty ?? true) {
+                 if (value!.isEmpty) {
                     return 'Insira o nome do cliente';
                  }
                   return null;
@@ -42,7 +42,7 @@ class AddDelivery extends StatelessWidget {
                 ),
                 controller: _detailController,
                 validator: (value) {
-                  if (value?.isEmpty ?? true) {
+                  if (value!.isEmpty) {
                     return 'Insira o seu pedido';
                   }
                   return null;
@@ -55,7 +55,7 @@ class AddDelivery extends StatelessWidget {
                 ),
                 controller: _dataPedidoController,
                 validator: (value) {
-                  if (value?.isEmpty ?? true) {
+                  if (value!.isEmpty) {
                     return 'Insira a data do pedido';
                    }
                   return null;
@@ -68,7 +68,7 @@ class AddDelivery extends StatelessWidget {
                 ),
                 controller: _addressController,
                 validator: (value) {
-                   if (value?.isEmpty ?? true) {
+                   if (value!.isEmpty) {
                   return 'Insira o endereço de entrega';
                     }
                    return null;
@@ -78,6 +78,7 @@ class AddDelivery extends StatelessWidget {
                 padding: EdgeInsets.only(top: 16.0),
                 child: ElevatedButton(
                   onPressed: () {
+                    if (_formKey.currentState!.validate()) {
                       Delivery delivery = Delivery(
                           nameCliente: _nameController.text,
                           detail: _detailController.text,
@@ -85,6 +86,7 @@ class AddDelivery extends StatelessWidget {
                           address: _addressController.text
                       );
                       Navigator.pop(context, delivery);
+                    }
                     },  child: Text('Salvar novo pedido'),
 
                 ),

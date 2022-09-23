@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:deliveryapp/addDelivery.dart';
 import 'package:deliveryapp/itemMainList.dart';
 import 'package:deliveryapp/delivery.dart';
+// import 'package:deliveryapp/Locations.dart';
 
 void main() {
   runApp(MyApp());
@@ -19,7 +20,8 @@ class MyApp extends StatelessWidget {
       initialRoute: '/',
       routes: {
         "/": (context) => MyHomePage(),
-        "/add": (context) => AddDelivery()
+        "/add": (context) => AddDelivery(),
+        // "/mapa": (context) => Locations()
       },
     );
   }
